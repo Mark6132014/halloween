@@ -6,7 +6,57 @@ html, body {
     margin: 0;
     text-align: center;
 }
+header {@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+html, body {
+    background: orange;
+    color: black;
+    font-family: "Creepster", system-ui;
+    margin: 0;
+    text-align: center;
+    scroll-behavior: smooth;
+}
 header {
+    background: rgba(255, 0, 0, 0.541);
+    color: white;
+    font-family: Arial, sans-serif;
+    width: 94%;
+    text-align: center;
+    position: fixed;
+    top: 1.5vh;
+    left: 2.3%;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 0 0 5px lightgray;
+    z-index: 1;
+}
+header a {
+    color: white;
+}
+header h2 {
+    margin: 0;
+    padding: 0;
+}
+.headerBackground {
+    height: 90vh;
+    width: 100%;
+}
+.headerNote {
+    color: white;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.541);
+    height: 150px;
+    width: 100%;
+}
+.aboutUs {
+    width: 100%;
+    background: linear-gradient(#4D2C54, black);
+    color: white;
+    text-align: center;
+}
     background: rgba(255, 255, 255, 0.74);
     color: white;
     font-family: Arial, sans-serif;
