@@ -31,10 +31,6 @@
             Learn Halloween
         </a>
         &nbsp;
-        <a href="#halloweencountdown">
-            Halloween Countdown
-        </a>
-        &nbsp;
         <a href="#bakery">
             Bakery
         </a>
@@ -43,18 +39,31 @@
             Quiz Whiz!
         </a>
     </header>
-    <div class="headerInfo" style="position: relative; height: 90vh; width: 100%;">
-        <img class="headerBackground" src="header.avif">
-        <div class="headerNote">
-            <h1>
-                Daring on Halloween, ain't we?
-            </h1>
-            <h3>
-                Have fun on Halloween!
-            </h3>
+    <div class="headerInfo" style="position: absolute; height: 100vh; width: 100%; top: -22px; left: 0;">
+        <div class="container" style="height: 100vh; width: 100%; background: url('header.avif'); background-size: cover; display: flex; justify-content: center; align-items: center;">
+            <div class="content" style="height: 500px; width: 800px;">
+                <center>
+                <br>
+                <br>
+                <br>
+                <div class="headerNote" style="width: 90%; border-radius: 10px;">
+                    <h1>
+                        Daring on Halloween
+                    </h1>
+                    <h3>
+                        Have fun on Halloween!
+                    </h3>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="headerNote" id="countdown" style="width: 90%; border-radius: 10px; font-size: 3em;"></div>
+                </center>
+            </div>
         </div>
     </div>
-    <br>
+    <div style="height: 100vh; width: 100%;"></div>
     <h1>
         About us, and our event:
     </h1>
@@ -303,11 +312,6 @@
         <br>
         To learn more, adults. Go here: <a href="https://en.wikipedia.org/wiki/Halloween">Wikipedia Halloween Facts and what is it about</a>
     </p>
-    <hr>
-    <h1 id="halloweencountdown">
-        Halloween Countdown:
-    </h1>
-    <h1 id="countdown"></h1>
     <hr>
     <h1 id="bakery">
         Halloween Foods with Recipes
