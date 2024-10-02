@@ -7,6 +7,9 @@ html, body {
     text-align: center;
     scroll-behavior: smooth;
 }
+::selection {
+    background: rgba(255, 0, 0, 0.67);
+}
 header {
     background: rgba(255, 0, 0, 0.541);
     color: white;
