@@ -71,7 +71,7 @@ footer a.websiteLink {
     width: 0px;
     background: rgba(255, 0, 0, 0.67);
     box-shadow: 0 0 5px red;
-    transition: 0.3s ease-in-out;
+    transition: 1s ease-in-out;
     border-radius: 8px;
     animation: change 5s ease infinite;
 }
