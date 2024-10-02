@@ -1,8 +1,3 @@
-document.querySelector(".game1").addEventListener("click", () => {
-    let GameClient = window.open("https://mark6132014.github.io/catchMe", "popup", "height=600,width=800");
-    GameClient.focus();
-    GameClient.moveTo(230, 50);
-});
 document.querySelector(".fullscreen").addEventListener("click", () => {
     document.documentElement.requestFullscreen((e) => {
         console.log(e);
@@ -24,16 +19,13 @@ function updateCountdown() {
 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-    document.getElementById('countdown').innerHTML = 
-        `${days} days, ${hours} hours ${minutes} minutes ${seconds} seconds.`;
         // Calculate the progress
     const totalDuration = nextHalloween - new Date(nextHalloween.getFullYear(), 0, 1);
     const elapsed = now - new Date(nextHalloween.getFullYear(), 0, 1);
     const progress = (elapsed / totalDuration) * 100;
-
-    // Update the progress bar
+    document.getElementById('countdown').innerHTML = 
+        `${days} days, ${hours} hours ${minutes} minutes ${seconds} seconds.`;
     document.querySelector('.progress').style.width = `${progress}%`;
 }
-// Update the countdown every second
 setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call to display countdown immediately
+updateCountdown();
