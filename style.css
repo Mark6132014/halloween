@@ -93,3 +93,14 @@ footer a.websiteLink {
         box-shadow: 0 0 20px lime;
     }
 }
+.account {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#4D2C54, rgba(255, 255, 255, 0.67));
+    z-index: 1;
+    color: white;
+    display: none;
+}
