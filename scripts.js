@@ -34,15 +34,12 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize account display based on localStorage
-    if (localStorage.getItem("username") === null && localStorage.getItem("alert") === null) {
-        document.querySelector("#account").innerText = "Account";
-        document.querySelector("#alert").checked = false;
-        document.querySelector("#name").innerText = ""; // Clear the contenteditable element
-    } else {
-        document.querySelector("#account").innerText = localStorage.getItem("username");
-        document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
-        document.querySelector("#name").innerText = localStorage.getItem("username"); // Set contenteditable value
-    }
+    const username = localStorage.getItem("username") || "Account"; // Default to "Account" if not set
+    const alertStatus = localStorage.getItem("alert") === 'true'; // Convert stored string to boolean
+
+    document.querySelector("#account").innerText = username;
+    document.querySelector("#alert").checked = alertStatus;
+    document.querySelector("#name").innerText = username; // Set contenteditable value
 
     // Event listener for the submit button
     document.querySelector(".submitAccount").addEventListener("click", () => {
