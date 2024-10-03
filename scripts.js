@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".submitAccount").addEventListener("click", () => {
         let alertCheckbox = document.querySelector("#alert");
         let usernameInput = document.querySelector("#name");
-
         // Save the checkbox state and username to localStorage
         localStorage.setItem("alert", alertCheckbox.checked);
         localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
+        document.querySelector("#account").innerHTML = localStorage.getItem("username");
 
         // Hide the account modal
         document.querySelector(".account").style.display = "none";
