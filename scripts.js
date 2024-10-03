@@ -32,31 +32,37 @@ const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
-document.querySelector(".submitAccount").addEventListener("click", () => {
-    let alertCheckbox = document.querySelector("#alert");
-    let usernameInput = document.querySelector("#name");
-    usernameInput.innerText = usernameInput.innerText;
-    document.querySelector("#account").innerText = usernameInput.innerText;
-    // Save the checkbox state and username to localStorage
-    localStorage.setItem("alert", alertCheckbox.checked);
-    localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize account display based on localStorage
+    if (localStorage.getItem("username") === null && localStorage.getItem("alert") === null) {
+        document.querySelector("#account").innerText = "Account";
+        document.querySelector("#alert").checked = false;
+        document.querySelector("#name").innerText = ""; // Clear the contenteditable element
+    } else {
+        document.querySelector("#account").innerText = localStorage.getItem("username");
+        document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
+        document.querySelector("#name").innerText = localStorage.getItem("username"); // Set contenteditable value
+    }
+
+    // Event listener for the submit button
+    document.querySelector(".submitAccount").addEventListener("click", () => {
+        let alertCheckbox = document.querySelector("#alert");
+        let usernameInput = document.querySelector("#name");
+
+        // Save the checkbox state and username to localStorage
+        localStorage.setItem("alert", alertCheckbox.checked);
+        localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
+
+        // Hide the account modal
+        document.querySelector(".account").style.display = "none";
+    });
+
+    // Toggle modal display on account click
+    document.querySelector("#account").addEventListener("click", () => {
+        let modal = document.querySelector(".account");
+        modal.style.display = (modal.style.display === "none") ? "block" : "none";
+    });
+
+    // Initially hide the account modal
     document.querySelector(".account").style.display = "none";
 });
-document.querySelector(".account").style.display = "none";
-document.querySelector("#account").addEventListener("click", () => {
-    let modal = document.querySelector(".account");
-    if (modal.style.display == "none") {
-        modal.style.display = "block";
-    } else {
-        modal.style.display = "none";
-    }
-});
-if (localStorage.username == null && localStorage.alert == null) {
-    document.querySelector("#account").innerText = "Account";
-    document.querySelector("#alert").checked = false;
-    document.querySelector("#name").innerText = "Account";
-} else {
-    document.querySelector("#account").innerText = localStorage.getItem("username");
-    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
-    document.querySelector("#name").innerText = localStorage.getItem("username");
-}
