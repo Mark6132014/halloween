@@ -42,13 +42,6 @@ document.querySelector(".submitAccount").addEventListener("click", () => {
     localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
     document.querySelector(".account").style.display = "none";
 });
-
-// Check if localStorage has values and set them accordingly
-if (localStorage.alert !== null && localStorage.username !== null) {
-    document.querySelector("#account").innerText = localStorage.getItem("username");
-    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
-    document.querySelector("#name").innerText = localStorage.getItem("username");
-}
 document.querySelector(".account").style.display = "none";
 document.querySelector("#account").addEventListener("click", () => {
     let modal = document.querySelector(".account");
@@ -58,3 +51,10 @@ document.querySelector("#account").addEventListener("click", () => {
         modal.style.display = "none";
     }
 });
+
+// Check if localStorage has values and set them accordingly
+if (localStorage.alert !== null && localStorage.username !== null) {
+    document.querySelector("#account").innerText = localStorage.getItem("username");
+    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
+    document.querySelector("#name").innerText = localStorage.getItem("username");
+}
