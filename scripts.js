@@ -51,9 +51,11 @@ document.querySelector("#account").addEventListener("click", () => {
         modal.style.display = "none";
     }
 });
-
-// Check if localStorage has values and set them accordingly
-if (localStorage.alert !== null && localStorage.username !== null) {
+if (localStorage.username == null && localStorage.alert == null) {
+    document.querySelector("#account").innerText = "Account";
+    document.querySelector("#alert").checked = false;
+    document.querySelector("#name").innerText = "Account";
+} else {
     document.querySelector("#account").innerText = localStorage.getItem("username");
     document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
     document.querySelector("#name").innerText = localStorage.getItem("username");
