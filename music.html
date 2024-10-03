@@ -1,0 +1,186 @@
+<html>
+    <head>
+        <title>
+            Halloween! With lots of Fun & Jokes | Radio
+        </title>
+        <link rel="shortcut icon" href="logo.png">
+        <style>
+            html, body {
+                background: url("witch.jfif");
+                overflow: hidden;
+                box-shadow: 0 0 300px orange inset;
+                background-size: cover;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container {
+                background: rgba(255, 145, 0, 0.67);
+                border-radius: 8px;
+                border: 1px solid white;
+                transition: 0.3s ease-in-out;
+                text-align: center;
+                position: fixed;
+                height: 80vh;
+                width: 70%;
+            }
+            .container .content {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: 80vh;
+                width: 99%;
+            }
+            .container .content a {
+                color: white;
+            }
+            .container:hover {
+                box-shadow: 0 0 100px red;
+            }
+            .radio {
+                background: white;
+                color: black;
+                border-radius: 8px;
+                width: 30%;
+                text-align: left;
+            }
+            .radio .controls {
+                text-align: center;
+                border: 1px solid black;
+                transition: 0.3s ease-in-out;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 5vh;
+                width: 100%;
+                border-radius: 8px;
+            }
+            .radio .controls:hover {
+                box-shadow: 0 0 5px black;
+            }
+            .radio .controls .play, .stop {
+                border-radius: 8px;
+                border: 1px solid black;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <center><div class="content">
+                <h2>
+                    Halloween's Radio Station
+                </h2>
+                <p>
+                    Celebrate with Halloween's Radio Station!
+                </p>
+                <center><div class="radio">
+                    <h3>
+                        Halloween Radio 615.7
+                    </h3>
+                    <div class="controls">
+                        <button class="play" onclick="startRadio();">
+                            Play
+                        </button>
+                        <button class="stop" onclick="stopRadio()">
+                            Stop
+                        </button>
+                    </div>
+                </div></center>
+                <br>
+                <hr>
+                <!-- Footer -->
+        <center>
+            <footer>
+                <img height="100" width="100" src="logo.png">
+                <br>
+                <span style="font-size: 3em; font-weight: bold;">&nbsp;&nbsp;Happy Halloween!</span>
+            <p>
+                Links:
+            </p>
+            <hr>
+            <a href="store.html">
+                Store
+            </a>
+            <br>
+            <br>
+            <a href="bakery.html">
+                Bakery
+            </a>
+            <br>
+            <br>
+            <a href="index.html">
+                Home
+            </a>
+            <hr>
+            <br>
+            <p>
+                Made by Itzgametime Vip.
+            </p>
+            <a class="websiteLink" href="https://itzgametime-vip.w3spaces.com">
+                Website: Itzgametime Vip
+            </a>
+        </footer>
+        </center>
+            </div></center>
+        </div>
+        <script>
+            var play = document.querySelector(".play");
+            var stop = document.querySelector(".stop");
+var songs = [
+    "Music/track1.mp3",
+    "Music/track2.mp3",
+    "Music/track3.mp3",
+    "Music/track4.mp3",
+    "Music/track5.mp3",
+    "Music/track6.mp3",
+    "Music/track7.mp3",
+    "Music/track8.mp3",
+    "Music/track9.mp3"
+];
+
+let currentAudio = null;
+let isPlaying = false;
+
+function playRandomSong() {
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    const song = songs[randomIndex];
+    
+    // Stop the current audio if it's playing
+    if (currentAudio) {
+        currentAudio.pause();
+    }
+
+    // Create a new Audio object and play the selected song
+    currentAudio = new Audio(song);
+    currentAudio.play();
+
+    // Set up the event listener to play the next song when the current one ends
+    currentAudio.onended = playRandomSong;
+}
+
+function startRadio() {
+    if (!isPlaying) {
+        isPlaying = true;
+        playRandomSong();
+    } else if (currentAudio) {
+        currentAudio.play(); // Resume playback if already playing
+    }
+}
+
+function stopRadio() {
+    isPlaying = false;
+    if (currentAudio) {
+        currentAudio.pause(); // Just pause the audio without resetting
+    }
+}
+
+// Set up click listeners for the music control buttons
+play.addEventListener("click", startRadio);
+stop.addEventListener("click", stopRadio);
+
+        </script>
+    </body>
+</html>
