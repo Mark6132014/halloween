@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Save the checkbox state and username to localStorage
         localStorage.setItem("alert", alertCheckbox.checked);
         localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
-        document.querySelector("#account").innerHTML = localStorage.getItem("username");
+        location.reload();
 
         // Hide the account modal
         document.querySelector(".account").style.display = "none";
