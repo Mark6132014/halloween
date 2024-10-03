@@ -3,32 +3,6 @@ document.querySelector(".fullscreen").addEventListener("click", () => {
         console.log(e);
     });
 });
-document.querySelector(".submitAccount").addEventListener("click", () => {
-    let alertCheckbox = document.querySelector("#alert");
-    let usernameInput = document.querySelector("#name");
-    usernameInput.innerText = usernameInput.innerText;
-    document.querySelector("#account").innerText = usernameInput.innerText;
-    // Save the checkbox state and username to localStorage
-    localStorage.setItem("alert", alertCheckbox.checked);
-    localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
-    document.querySelector(".account").style.display = "none";
-});
-
-// Check if localStorage has values and set them accordingly
-if (localStorage.alert !== null && localStorage.username !== null) {
-    document.querySelector("#account").innerText = localStorage.getItem("username");
-    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
-    document.querySelector("#name").innerText = localStorage.getItem("username");
-}
-document.querySelector(".account").style.display = "none";
-document.querySelector("#account").addEventListener("click", () => {
-    let modal = document.querySelector(".account");
-    if (modal.style.display == "none") {
-        modal.style.display = "block";
-    } else {
-        modal.style.display = "none";
-    }
-});
 /* Halloween countdown */
 function updateCountdown() {
     const now = new Date();
@@ -58,3 +32,29 @@ const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
+document.querySelector(".submitAccount").addEventListener("click", () => {
+    let alertCheckbox = document.querySelector("#alert");
+    let usernameInput = document.querySelector("#name");
+    usernameInput.innerText = usernameInput.innerText;
+    document.querySelector("#account").innerText = usernameInput.innerText;
+    // Save the checkbox state and username to localStorage
+    localStorage.setItem("alert", alertCheckbox.checked);
+    localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
+    document.querySelector(".account").style.display = "none";
+});
+
+// Check if localStorage has values and set them accordingly
+if (localStorage.alert !== null && localStorage.username !== null) {
+    document.querySelector("#account").innerText = localStorage.getItem("username");
+    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
+    document.querySelector("#name").innerText = localStorage.getItem("username");
+}
+document.querySelector(".account").style.display = "none";
+document.querySelector("#account").addEventListener("click", () => {
+    let modal = document.querySelector(".account");
+    if (modal.style.display == "none") {
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
+    }
+});
