@@ -3,6 +3,32 @@ document.querySelector(".fullscreen").addEventListener("click", () => {
         console.log(e);
     });
 });
+document.querySelector(".submitAccount").addEventListener("click", () => {
+    let alertCheckbox = document.querySelector("#alert");
+    let usernameInput = document.querySelector("#name");
+    usernameInput.innerText = usernameInput.innerText;
+    document.querySelector("#account").innerText = usernameInput.innerText;
+    // Save the checkbox state and username to localStorage
+    localStorage.setItem("alert", alertCheckbox.checked);
+    localStorage.setItem("username", usernameInput.innerText); // Use innerText for contenteditable
+    document.querySelector(".account").style.display = "none";
+});
+
+// Check if localStorage has values and set them accordingly
+if (localStorage.getItem("alert") !== null && localStorage.getItem("username") !== null) {
+    document.querySelector("#account").innerText = localStorage.getItem("username");
+    document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
+    document.querySelector("#name").innerText = localStorage.getItem("username");
+}
+document.querySelector(".account").style.display = "none";
+document.querySelector("#account").addEventListener("click", () => {
+    let modal = document.querySelector(".account");
+    if (modal.style.display == "none") {
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
+    }
+});
 /* Halloween countdown */
 function updateCountdown() {
     const now = new Date();
@@ -11,6 +37,9 @@ function updateCountdown() {
     // If Halloween has already passed this year, set to next year
     if (now > nextHalloween) {
         nextHalloween.setFullYear(nextHalloween.getFullYear() + 1);
+        if (localStorage.getItem("alert") == true) {
+            alert("Halloween is starting! October 31st, 5PM!\nGet a'ready for'a trick or treatin'!");
+        }
     }
 
     const timeRemaining = nextHalloween - now;
