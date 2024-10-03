@@ -15,7 +15,7 @@ document.querySelector(".submitAccount").addEventListener("click", () => {
 });
 
 // Check if localStorage has values and set them accordingly
-if (localStorage.getItem("alert") !== null && localStorage.getItem("username") !== null) {
+if (localStorage.alert !== null && localStorage.username !== null) {
     document.querySelector("#account").innerText = localStorage.getItem("username");
     document.querySelector("#alert").checked = (localStorage.getItem("alert") === 'true');
     document.querySelector("#name").innerText = localStorage.getItem("username");
