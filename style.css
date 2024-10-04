@@ -104,3 +104,13 @@ footer a.websiteLink {
     color: white;
     display: none;
 }
+@keyframes switchBackgrounds {
+    from {
+        background: url("header.avif");
+        background-size: 100% 100vh;
+    }
+    to {
+        background: url("moon.jpg");
+        background-size: 100% 100vh;
+    }
+}
